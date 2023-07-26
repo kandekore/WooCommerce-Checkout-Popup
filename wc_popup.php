@@ -56,15 +56,21 @@ function wc_popup_admin_page_callback() {
 }
 
     
-    // Enqueue frontend scripts
-    function wc_popup_enqueue_scripts() {
-        wp_enqueue_script( 'wc-popup-script', plugin_dir_url( __FILE__ ) . 'js/wc-popup.js', array( 'jquery' ), '1.0.0', true );
-        wp_localize_script( 'wc-popup-script', 'wc_popup_params', array(
-            'popup_content' => get_option( 'wc_popup_content' ),
-            'popup_width' => get_option( 'wc_popup_width' ),
-            'popup_height' => get_option( 'wc_popup_height' ),
-            'button_text' => get_option( 'wc_popup_button_text' ),
-        ) );
-    }
-    add_action( 'wp_enqueue_scripts', 'wc_popup_enqueue_scripts' );
+// Enqueue frontend scripts and styles
+function wc_popup_enqueue_scripts() {
+    wp_enqueue_script( 'wc-popup-script', plugin_dir_url( __FILE__ ) . 'js/wc_popup.js', array( 'jquery' ), '1.0.0', true );
+    wp_enqueue_style( 'wc-popup-styles', plugin_dir_url( __FILE__ ) . 'css/styles.css', array(), '1.0.0' );
+
+    wp_localize_script( 'wc-popup-script', 'wc_popup_params', array(
+        'popup_content' => get_option( 'wc_popup_content' ),
+        'popup_width' => get_option( 'wc_popup_width' ),
+        'popup_height' => get_option( 'wc_popup_height' ),
+        'button_text' => get_option( 'wc_popup_button_text' ),
+        'site_url' => get_option( 'siteurl' ),
+    ) );
 }
+add_action( 'wp_enqueue_scripts', 'wc_popup_enqueue_scripts' );
+}
+
+
+

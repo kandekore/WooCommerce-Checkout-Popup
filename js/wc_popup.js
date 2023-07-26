@@ -16,10 +16,12 @@ jQuery(document).ready(function ($) {
       "</button>";
     popup_html += "</div>";
     $("body").append(popup_html);
-    $("#wc-popup-wrapper").show();
+    $("#wc-popup-wrapper").fadeIn();
   });
   $("body").on("click", "#wc-popup-close", function () {
-    $("#wc-popup-wrapper").remove();
-    window.location.href = "/checkout/";
+    $("#wc-popup-wrapper").fadeOut(function () {
+      $(this).remove();
+    });
+    window.location.href = wc_popup_params.site_url + "/checkout/";
   });
 });
