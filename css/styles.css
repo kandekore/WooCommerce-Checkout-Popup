@@ -9,3 +9,33 @@
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
+/* Responsive styling for smaller screens */
+@media screen and (max-width: 600px) {
+  #wc-popup-wrapper {
+    width: 90% !important;
+    height: auto !important;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  li {
+    font-size: 12px;
+  }
+
+  #wc-popup-content {
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+  }
+}
+#wc-popup-close {
+  background: green;
+  color: white;
+  border-radius: 7px;
+  display: block;
+  margin: 0 auto;
+}
+#wc-popup-wrapper {
+  box-shadow: 2px 2px #000;
+  border-radius: 24px;
+}
